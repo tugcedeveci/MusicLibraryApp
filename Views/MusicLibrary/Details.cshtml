@@ -1,0 +1,36 @@
+@model Music
+
+<div class="row d-flex">
+  <div class="col-md-4 flex-fill">
+    <img src="~/image/@Model.Image" class="img-fluid" alt="Music Image" />
+  </div>
+  <div class="col-md-8 flex-fill">
+    <div class="card-body">
+      <a asp-controller="MusicLibrary" asp-action="Details" asp-route-id="@Model.Id">
+        <h2 class="card-title">@Model.Title</h2>
+      </a>
+      <p class="card-text">
+        <strong>Description:</strong> @Model.Description
+      </p>
+      <p class="card-text">
+        <strong>Artist:</strong> @Model.Artist
+      </p>
+      <p class="card-text">
+        <strong>Album:</strong> @Model.Album
+      </p>
+      <p class="card-text">
+        <strong>Year:</strong> @Model.Year
+      </p>
+      <div>
+        @if (Model.Tags != null)
+        {
+          <strong>Tags:</strong>
+          @foreach (var tag in Model.Tags)
+          {
+            <span class="badge bg-dark">@tag</span>
+          }
+        }
+      </div>
+    </div>
+  </div>
+</div>

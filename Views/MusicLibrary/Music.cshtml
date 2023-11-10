@@ -1,0 +1,8 @@
+@model List<Music>
+  <div class="container mt-3">
+    @foreach(var music in Model){ 
+      @if(music.IsActive){ 
+        @await Html.PartialAsync("_Music",music) 
+      } 
+    }
+  </div>
